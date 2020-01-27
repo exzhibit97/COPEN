@@ -6,18 +6,25 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.copen.Extensions.GlobalClass;
+
 import org.opencv.android.OpenCVLoader;
 import org.opencv.core.Mat;
+
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button cameraActivitybtn;
     private Button keySelection;
+    private TextView keyName;
+    private TextView keyAnswers;
     private ImageView imageView;
-
+    private GlobalClass globalClass;
     private String recognitionResult;
     private Mat result;
 
@@ -30,6 +37,17 @@ public class MainActivity extends AppCompatActivity {
         cameraActivitybtn = findViewById(R.id.button);
 //        imageView = findViewById(R.id.imageView);
         keySelection = findViewById(R.id.button2);
+        keyName = findViewById(R.id.textView5);
+        keyAnswers = findViewById(R.id.textView7);
+        globalClass = (GlobalClass) getApplicationContext();
+
+        if (globalClass.getAnswers() != null ) {
+            keyName.setText(globalClass.getTestName());
+            keyAnswers.setText(Arrays.toString(globalClass.getAnswers()));
+        } else {
+            keyName.setText("No key chosen!");
+            keyAnswers.setText(Arrays.toString(globalClass.getAnswers()));
+        }
 
 //        AssetManager assetManager = getAssets();
 //        Mat mat = new Mat();
@@ -173,5 +191,17 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        //When BACK BUTTON is pressed, the activity on the stack is restarted
+        //Do what you want on the refresh procedure here
+        if (globalClass.getAnswers() != null ) {
+            keyName.setText(globalClass.getTestName());
+            keyAnswers.setText(Arrays.toString(globalClass.getAnswers()));
+        } else {
+            keyName.setText("No key chosen!");
+            keyAnswers.setText(Arrays.toString(globalClass.getAnswers()));
+        }
+    }
 }
-

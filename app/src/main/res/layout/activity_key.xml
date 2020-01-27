@@ -1,246 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".KeyActivity">
 
-<!--    <TextView-->
-<!--        android:id="@+id/nameTV"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="26dp"-->
-<!--        android:layout_marginTop="24dp"-->
-<!--        android:layout_marginEnd="28dp"-->
-<!--        android:text="Nazwa:"-->
-<!--        android:textSize="24sp"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/nameText"-->
-<!--        app:layout_constraintHorizontal_bias="0.476"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/keyTV"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="26dp"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:text="Klucz:"-->
-<!--        android:textSize="24sp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/nameTV" />-->
-
-<!--    <EditText-->
-<!--        android:id="@+id/nameText"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="40dp"-->
-<!--        android:layout_marginTop="24dp"-->
-<!--        android:layout_marginEnd="14dp"-->
-<!--        android:ems="10"-->
-<!--        android:hint="Nazwa testu"-->
-<!--        android:inputType="textPersonName"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/nameTV"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--    <EditText-->
-<!--        android:id="@+id/keyText"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="36dp"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:layout_marginEnd="14dp"-->
-<!--        android:ems="10"-->
-<!--        android:hint="Wprowadź klucz. Max 20 znaków"-->
-<!--        android:inputType="textPersonName"-->
-<!--        android:maxLength="20"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="1.0"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/keyTV"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/nameText" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/choiceTV"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="17dp"-->
-<!--        android:layout_marginTop="157dp"-->
-<!--        android:layout_marginBottom="44dp"-->
-<!--        android:text="Wybierz test"-->
-<!--        android:textSize="18sp"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/key2TV"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/keyTV" />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/saveBT"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="161dp"-->
-<!--        android:layout_marginTop="33dp"-->
-<!--        android:layout_marginEnd="162dp"-->
-<!--        android:text="Zapisz"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.0"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/keyText" />-->
-
-<!--    <Spinner-->
-<!--        android:id="@+id/spinner"-->
-<!--        android:layout_width="230dp"-->
-<!--        android:layout_height="37dp"-->
-<!--        android:layout_marginStart="19dp"-->
-<!--        android:layout_marginTop="56dp"-->
-<!--        android:layout_marginEnd="16dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.333"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/choiceTV"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/saveBT" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/key2TV"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:layout_marginTop="44dp"-->
-<!--        android:text="Odp:"-->
-<!--        android:textSize="18sp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/choiceTV" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/textView6"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        android:layout_marginTop="44dp"-->
-<!--        android:text="Klucz do tesu"-->
-<!--        android:textSize="18sp"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/key2TV"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/choiceTV" />-->
-
-    <TextView
-        android:id="@+id/nameTV"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="28dp"
-        android:text="Nazwa:"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/nameText"
-        app:layout_constraintHorizontal_bias="0.476"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/keyTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="20dp"
-        android:text="Klucz:"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameTV" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="Add a new test"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-    <EditText
-        android:id="@+id/nameText"
-        android:layout_width="267dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="22dp"
-        android:ems="10"
-        android:hint="Nazwa testu"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/nameTV"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/nameText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Test name" />
 
-    <EditText
-        android:id="@+id/keyText"
-        android:layout_width="267dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="14dp"
-        android:ems="10"
-        android:hint="Wprowadź klucz. Max 20 znaków"
-        android:inputType="textPersonName"
-        android:maxLength="20"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/keyTV"
-        app:layout_constraintTop_toBottomOf="@+id/nameText" />
+        <EditText
+            android:id="@+id/keyText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Enter key. Max 20 characters"
+            android:maxLength="20"
+            android:paddingLeft="6dp" />
 
-    <Button
-        android:id="@+id/saveBT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="162dp"
-        android:text="Zapisz"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/keyText" />
+        <Button
+            android:id="@+id/saveBT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Test" />
 
-    <TextView
-        android:id="@+id/choiceTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="186dp"
-        android:text="Wybierz test"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/keyTV" />
+        <TextView
+            android:id="@+id/testListTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="View Tests"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/key2TV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="72dp"
-        android:text="Odp:"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choiceTV" />
-
-    <TextView
-        android:id="@+id/examKeyTV"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="72dp"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/key2TV"
-        app:layout_constraintTop_toBottomOf="@+id/choiceTV" />
-
-    <Spinner
-        android:id="@+id/examsSpinner"
-        android:layout_width="230dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.419"
-        app:layout_constraintStart_toEndOf="@+id/choiceTV"
-        app:layout_constraintTop_toBottomOf="@+id/getBT" />
-
-    <Button
-        android:id="@+id/getBT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="162dp"
-        android:text="Odśwież"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/saveBT" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

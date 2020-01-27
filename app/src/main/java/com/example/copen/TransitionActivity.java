@@ -10,6 +10,7 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.opencv.android.OpenCVLoader;
 import org.opencv.android.Utils;
 import org.opencv.core.Mat;
 
@@ -28,6 +29,7 @@ public class TransitionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        OpenCVLoader.initDebug();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transition);
 

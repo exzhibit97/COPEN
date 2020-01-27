@@ -3,8 +3,6 @@ package com.example.copen.Extensions;
 import android.graphics.Bitmap;
 import android.util.Log;
 
-import com.example.copen.Classes.Blueprint;
-
 import org.opencv.android.Utils;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
@@ -87,7 +85,6 @@ public class AnswerRecognition {
 
 
             matchLoc.y += interval;
-
         }
 
         StringBuilder stringBuilder = new StringBuilder();
@@ -97,31 +94,6 @@ public class AnswerRecognition {
             stringBuilder.append(finalAnswers[i]);
         }
 
-        //count points
-        int pointsCounter = 0;
-        for (int i = 0; i < finalAnswers.length; i++) {
-            if (finalAnswers[i] == tempKey[i]) {
-                pointsCounter += 1;
-            } else {
-                //Log.d("MISTAKES", "You got mistaken in question: " + (i+1) + ". You answered " + finalAnswers[i] + " where it should be " + tempKey[i]);
-            }
-        }
-
-        Log.d("ANSWERS:", stringBuilder + ". You scored :" + pointsCounter + " points");
-
-        Blueprint bp = new Blueprint(finalAnswers);
-        Blueprint bp2 = new Blueprint(finalAnswers);
-        //System.out.println(bp.getId());
-        char[] asd = bp.getAnswers();
-//        for (int i = 0; i < asd.length; i++) {
-//            System.out.println(asd[i]);
-//        }
-      /*  try (Writer writer = new FileWriter("Output.json")) {
-            Gson gson = new GsonBuilder().create();
-            gson.toJson(bp, writer);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
         return String.valueOf(stringBuilder);
     }
 }

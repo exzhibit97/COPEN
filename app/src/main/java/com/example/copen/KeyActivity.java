@@ -1,13 +1,9 @@
 package com.example.copen;
 
-import android.database.Cursor;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,90 +11,69 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.copen.Extensions.DatabaseHelper;
 
-import java.util.ArrayList;
 
-public class KeyActivity extends AppCompatActivity {
+public class KeyActivity extends AppCompatActivity implements View.OnClickListener {
 
     DatabaseHelper myDb;
     EditText editName, editKey;
-    Button btnAddData;
-    Button btnGetExams;
-    Spinner examsSpinner;
-    ArrayList<String> examsList = new ArrayList<>();
-    TextView examKey;
+    TextView viewTests;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_key);
 
         myDb = new DatabaseHelper(this);
 
-        editName = findViewById(R.id.nameText);
-        editKey = findViewById(R.id.keyText);
-        btnAddData = findViewById(R.id.saveBT);
-        btnGetExams = findViewById(R.id.getBT);
-        examsSpinner = findViewById(R.id.examsSpinner);
-        examKey = findViewById(R.id.examKeyTV);
+        editName = (EditText)findViewById(R.id.nameText);
+        editKey = (EditText)findViewById(R.id.keyText);
+        //btnAddData = (Button)findViewById(R.id.saveBT);
+        viewTests = (TextView) findViewById(R.id.testListTV);
 
-        addData();
+        findViewById(R.id.saveBT).setOnClickListener(this);
+        viewTests.setOnClickListener(this);
 
-        Cursor res = myDb.getExams();
-        if(res.getCount() == 0){
-            Toast.makeText(KeyActivity.this, "Brak danych w bazie", Toast.LENGTH_LONG).show();
-            return;
+    }
+
+    private boolean inputsAreCorrect(String name, String key) {
+        if (name.isEmpty()) {
+            editName.setError("Please enter a name");
+            editName.requestFocus();
+            return false;
         }
 
-        while(res.moveToNext()){
-            examsList.add(res.getString(0));
+        if (key.isEmpty() || key.length() < 20) {
+            editKey.setError("Please enter a key");
+            editKey.requestFocus();
+            return false;
         }
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, examsList);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        examsSpinner.setAdapter(arrayAdapter);
-
-        //getExams();
-        getKey();
-
+        return true;
     }
 
     public void addData(){
-        btnAddData.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        boolean isInserted = myDb.insertData(editName.getText().toString(), editKey.getText().toString());
+        if (inputsAreCorrect(editName.getText().toString().trim(), editKey.getText().toString().trim()))
+        {
+            myDb.insertData(editName.getText().toString().trim(), editKey.getText().toString().trim());
+            Toast.makeText(KeyActivity.this, "Dodano do bazy", Toast.LENGTH_LONG).show();
 
-                        if (isInserted = true)
-                            Toast.makeText(KeyActivity.this, "Dodano do bazy", Toast.LENGTH_LONG).show();
-                        else
-                            Toast.makeText(KeyActivity.this, "Nie dodano do bazy", Toast.LENGTH_LONG).show();
-                    }
-                }
-        );
+        }else {
+            Toast.makeText(KeyActivity.this, "Nie dodano do bazy", Toast.LENGTH_LONG).show();
+        }
     }
 
-    public void getKey(){
-        examsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.saveBT:
 
-                String selection = parent.getItemAtPosition(position).toString();
+                addData();
 
-                Cursor res = myDb.getKey(selection);
+                break;
 
-                while(res.moveToNext()){
-                    String key = res.getString(0);
+            case R.id.testListTV:
 
-                    Toast.makeText(KeyActivity.this, key, Toast.LENGTH_LONG).show();
-                    examKey.setText(key);
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+                startActivity(new Intent(this, ExamsActivity.class));
+        }
     }
 }
