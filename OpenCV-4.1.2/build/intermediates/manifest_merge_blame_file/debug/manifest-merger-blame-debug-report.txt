@@ -6,8 +6,8 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="23"
-8-->D:\Studia\Semestr 5\Programowanie aplikacji mobilnych\COPEN\OpenCV-4.1.2\java\AndroidManifest.xml
+8-->C:\Users\Patryk\COPEN\OpenCV-4.1.2\java\AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->D:\Studia\Semestr 5\Programowanie aplikacji mobilnych\COPEN\OpenCV-4.1.2\java\AndroidManifest.xml
+9-->C:\Users\Patryk\COPEN\OpenCV-4.1.2\java\AndroidManifest.xml
 10
 11</manifest>

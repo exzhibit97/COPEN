@@ -17,6 +17,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+//    externalNativeBuild {
+//        cmake {
+//            version "3.10.2"  // The key line
+//            path file('CMakeLists.txt')
+//        }
+//    }
 }
 
 dependencies {
@@ -27,4 +33,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation project(path: ':OpenCV-4.1.2')
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'// Old 2.8.2
+
 }
